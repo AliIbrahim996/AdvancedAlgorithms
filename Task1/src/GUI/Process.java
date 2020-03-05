@@ -38,6 +38,7 @@ public class Process {
             Collections.sort(bigger, Collections.reverseOrder());
             
             graph = new Graph(bigger.get(0)+1);
+            bigger=null;
             read = new Scanner(file, StandardCharsets.UTF_8.name());
             System.out.println("Adding edges...\n");
             jtx.append("Adding edges...\n");
@@ -74,11 +75,11 @@ public class Process {
                 
                 solve = r.solve(graph);
                 jtx.append("finished!..\n");
-                String text = "Result { +\n";
+                String text = "Result {\n";
                 for (int i : solve) {
                     text += i + "\n";
                 }
-                text += "}\n";
+                text += "}\n"+ "Number of selected Nodes: "+solve.size()+"\n";
                 jtx.append(text);
                 graph = null;
                 solve.clear();

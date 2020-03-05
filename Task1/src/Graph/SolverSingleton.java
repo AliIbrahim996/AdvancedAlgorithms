@@ -10,7 +10,7 @@ public class SolverSingleton {
     public synchronized static LinearProgramSolver getSolver() {
         if (solver == null) {
 
-            solver = SolverFactory.getSolver("GLPK");
+            solver = SolverFactory.getSolver("LPSOLVE");
 
         }
         return solver;

@@ -1,5 +1,6 @@
 package Graph;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -65,5 +66,26 @@ public class Graph {
     public void removeIncidentEdges(int u) {
         graph.get(u).clear();
 
+    }
+
+    public static void main(String[] args) {
+        Graph g = new Graph(8);
+
+        g.addEdge(0, 1);
+        g.addEdge(1, 2);
+        g.addEdge(1, 5);
+        g.addEdge(2, 3);
+        g.addEdge(2, 6);
+        g.addEdge(4, 5);
+        g.addEdge(5, 6);
+        g.addEdge(6, 7);
+
+        Relaxation r = new Relaxation();
+        ArrayList<Integer> solve = r.solve(g);
+        System.out.println("Result: { ");
+        for (int i : solve) {
+            System.out.print(i+", ");
+        }
+        System.out.println("\n }");
     }
 }
