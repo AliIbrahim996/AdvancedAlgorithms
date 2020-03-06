@@ -3,6 +3,8 @@ package GUI;
 import Graph.Graph;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -10,11 +12,11 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
 /**
  *
  * @author Ali Ibrahim
@@ -33,10 +35,25 @@ public class BasicGUI extends JFrame {
     Graph graph;
 
     public BasicGUI() {
-        setTitle("Approximation & Relaxtion");
-        setVisible(true);
-        setSize(500, 500);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setTitle("Approximation & Relaxtion");
+        this.setVisible(true);
+        this.setSize(500, 500);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent we) {
+                String ObjButtons[] = {"Yes", "No"};
+                int PromptResult = JOptionPane.showOptionDialog(null, "Are you sure you want to exit?",
+                        "MaxFlow Project", JOptionPane.DEFAULT_OPTION, 
+                        JOptionPane.WARNING_MESSAGE,
+                        null, ObjButtons, ObjButtons[1]);
+                if (PromptResult == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+
         jbutton1.setText("Read File");
         jbutton2.setText("Clear");
         jbutton3.setText("Solve with algo1");
@@ -123,7 +140,7 @@ public class BasicGUI extends JFrame {
                     Logger.getLogger(BasicGUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
-            jtx.append("Solving with algo1\n");
+            
             th1.start();
             th2.start();
         }
@@ -149,9 +166,9 @@ public class BasicGUI extends JFrame {
                     Logger.getLogger(BasicGUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
-            jtx.append("Solving with algo2\n");
+            
             th1.start();
             th2.start();
         }
-    }   
+    }
 }

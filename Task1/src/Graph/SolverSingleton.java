@@ -11,6 +11,7 @@ public class SolverSingleton {
         if (solver == null) {
 
             solver = SolverFactory.getSolver("LPSOLVE");
+            // solver = SolverFactory.getSolver("GLPK");
 
         }
         return solver;

@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ali%20Ibrahim/Documents/NetBeansProjects/Task1/src/Graph/SolverSingleton.java</file>
             <file>file:/C:/Users/Ali%20Ibrahim/Documents/NetBeansProjects/Task1/src/GUI/Process.java</file>
-            <file>file:/C:/Users/Ali%20Ibrahim/Documents/NetBeansProjects/Task1/src/Graph/Graph.java</file>
+            <file>file:/C:/Users/Ali%20Ibrahim/Documents/NetBeansProjects/Task1/src/Graph/VertexcoverApproximation.java</file>
+            <file>file:/C:/Users/Ali%20Ibrahim/Documents/NetBeansProjects/Task1/src/GUI/BasicGUI.java</file>
+            <file>file:/C:/Users/Ali%20Ibrahim/Documents/NetBeansProjects/Task1/src/Graph/Relaxation.java</file>
         </group>
     </open-files>
 </project-private>

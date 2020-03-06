@@ -70,7 +70,16 @@ public class Graph {
 
     public static void main(String[] args) {
         Graph g = new Graph(8);
-
+        
+        /*
+        0----1----2----3
+             |    |
+             |    |
+        4----5----6----7
+        
+        
+        
+         */
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(1, 5);
@@ -84,8 +93,8 @@ public class Graph {
         ArrayList<Integer> solve = r.solve(g);
         System.out.println("Result: { ");
         for (int i : solve) {
-            System.out.print(i+", ");
+            System.out.print(i + ", ");
         }
-        System.out.println("\n }");
+        System.out.println("\n } Number of nodes Selected: "+ solve.size());
     }
 }
