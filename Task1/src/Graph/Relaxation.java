@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import scpsolver.constraints.LinearBiggerThanEqualsConstraint;
+import scpsolver.constraints.LinearSmallerThanEqualsConstraint;
 import scpsolver.lpsolver.LinearProgramSolver;
 import scpsolver.problems.LinearProgram;
 
@@ -54,13 +55,14 @@ public class Relaxation implements IVertexCoverSolver {
             for (Graph.Edge e : graph.getEdges(node)) {
                 int v1 = MapHelper.getKey(variableVertexMap, node);
                 int v2 = MapHelper.getKey(variableVertexMap, e.dest);
-                //array of zeros but indices u and v are 1.0
+                
                 double[] constraint = new double[graph.getNodesCount()];
+                
                 constraint[v1] = 1.0;
                 constraint[v2] = 1.0;
-                String cIdentifier = "c" + i;
+                
                 //x_u + x_v ≥ 1 ∀e = (u,v)∈ E 
-                lp.addConstraint(new LinearBiggerThanEqualsConstraint(constraint, 1.0, cIdentifier));
+                lp.addConstraint(new LinearBiggerThanEqualsConstraint(constraint, 1.0, "c" + i));
                 i++;
             }
         }
@@ -72,10 +74,13 @@ public class Relaxation implements IVertexCoverSolver {
 
             constraint[j] = 1.0;
 
-            String cIdentifier = "c" + (graph.getEdgesCount() + j);
-            //we relax the constraint x_v ∈{0,1} to x_v ∈[0,1].It can be further simpliﬁed to x_v ≥0
-            lp.addConstraint(new LinearBiggerThanEqualsConstraint(constraint, 0, cIdentifier));
-            
+            //String cIdentifier = "c" + (graph.getEdgesCount() + j);
+            //we relax the constraint x_v ∈{0,1} to x_v ∈[0,1]
+            lp.addConstraint(new LinearBiggerThanEqualsConstraint(constraint, 0,  "c" + (graph.getEdgesCount() + j)));
+            constraint = new double[graph.getNodesCount()];
+
+            constraint[j] = 1.0;
+            lp.addConstraint(new LinearSmallerThanEqualsConstraint(constraint, 1,  "c" + (graph.getEdgesCount() + j)));
         });
 
         System.out.println("Step3 done!");

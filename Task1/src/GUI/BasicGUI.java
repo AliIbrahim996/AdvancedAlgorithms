@@ -15,8 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.text.DefaultCaret;
-
 /**
  *
  * @author Ali Ibrahim
@@ -155,5 +153,5 @@ public class BasicGUI extends JFrame {
             th1.start();
             th2.start();
         }
-    }
+    }   
 }
