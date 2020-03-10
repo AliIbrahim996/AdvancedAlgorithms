@@ -45,7 +45,7 @@ public class BasicGUI extends JFrame {
             public void windowClosing(WindowEvent we) {
                 String ObjButtons[] = {"Yes", "No"};
                 int PromptResult = JOptionPane.showOptionDialog(null, "Are you sure you want to exit?",
-                        "MaxFlow Project", JOptionPane.DEFAULT_OPTION, 
+                        "Task1", JOptionPane.DEFAULT_OPTION, 
                         JOptionPane.WARNING_MESSAGE,
                         null, ObjButtons, ObjButtons[1]);
                 if (PromptResult == JOptionPane.YES_OPTION) {
