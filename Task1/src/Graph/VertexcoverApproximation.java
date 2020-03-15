@@ -13,10 +13,7 @@ public class VertexcoverApproximation {
 
     public String calculate(Graph g) {
 
-        boolean visited[] = new boolean[g.getNodesCount()];
-        for (int i = 0; i < visited.length; i++) {
-            visited[i] = false;
-        }
+        boolean[] visited = new boolean[g.getNodesCount()];
         String re = "";
         Set<Integer> keySet = g.graph.keySet();
         for (Integer i : keySet) {
