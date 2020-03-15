@@ -1,6 +1,8 @@
 package GUI;
 
 import Graph.Graph;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -9,13 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 /**
  *
@@ -35,17 +30,18 @@ public class BasicGUI extends JFrame {
     Graph graph;
 
     public BasicGUI() {
-        this.setTitle("Approximation & Relaxtion");
+        this.setTitle("Approximation & Relaxation");
         this.setVisible(true);
+
         this.setSize(500, 500);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent we) {
-                String ObjButtons[] = {"Yes", "No"};
+                String[] ObjButtons = {"Yes", "No"};
                 int PromptResult = JOptionPane.showOptionDialog(null, "Are you sure you want to exit?",
-                        "Task1", JOptionPane.DEFAULT_OPTION, 
+                        "Task1", JOptionPane.DEFAULT_OPTION,
                         JOptionPane.WARNING_MESSAGE,
                         null, ObjButtons, ObjButtons[1]);
                 if (PromptResult == JOptionPane.YES_OPTION) {
@@ -58,10 +54,10 @@ public class BasicGUI extends JFrame {
         jbutton2.setText("Clear");
         jbutton3.setText("Solve with algo1");
         jbutton4.setText("Solve with algo2");
-        jbutton1.addActionListener(new OnClickActionListner());
-        jbutton2.addActionListener(new OnClickButton2ActionListner());
-        jbutton3.addActionListener(new OnClickButton3ActionListner());
-        jbutton4.addActionListener(new OnClickButton4ActionListner());
+        jbutton1.addActionListener(new OnClickActionListener());
+        jbutton2.addActionListener(new OnClickButton2ActionListener());
+        jbutton3.addActionListener(new OnClickButton3ActionListener());
+        jbutton4.addActionListener(new OnClickButton4ActionListener());
         sPane.add(jtx);
         sPane.setViewportView(jtx);
         //jp.add(jtx);
@@ -73,7 +69,11 @@ public class BasicGUI extends JFrame {
         add(jp);
     }
 
-    static class OnClickActionListner implements ActionListener {
+    public static void main(String[] args) {
+        BasicGUI gui = new BasicGUI();
+    }
+
+    static class OnClickActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -108,7 +108,7 @@ public class BasicGUI extends JFrame {
         }
     }
 
-    static class OnClickButton2ActionListner implements ActionListener {
+    static class OnClickButton2ActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -116,11 +116,7 @@ public class BasicGUI extends JFrame {
         }
     }
 
-    public static void main(String args[]) {
-        BasicGUI gui = new BasicGUI();
-    }
-
-    private static class OnClickButton3ActionListner implements ActionListener {
+    private static class OnClickButton3ActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -146,7 +142,7 @@ public class BasicGUI extends JFrame {
         }
     }
 
-    private static class OnClickButton4ActionListner implements ActionListener {
+    private static class OnClickButton4ActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
