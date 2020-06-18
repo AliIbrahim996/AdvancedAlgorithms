@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="JAR files">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JAR files/SCPSolver.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JAR files/LPSOLVESolverPack.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JAR files/GLPKSolverPack.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
